@@ -1470,7 +1470,6 @@ config TOUCHSCREEN_DUMP_MODE
 
 source "drivers/input/touchscreen/sec_ts/Kconfig"
 source "drivers/input/touchscreen/sec_ts/y771/Kconfig"
-source "drivers/input/touchscreen/stm/Kconfig"
 source "drivers/input/touchscreen/sec_ts_y661_dual/Kconfig"
 
 endif
