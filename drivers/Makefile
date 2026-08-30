@@ -190,11 +190,8 @@ obj-$(CONFIG_SENSORS_TCS3407)	+= optics/
 obj-$(CONFIG_TEE)		+= tee/
 obj-$(CONFIG_ADSP_FACTORY)      += adsp_factory/
 
-ifeq ($(CONFIG_BATTERY_SAMSUNG_V2), y)
-	obj-$(CONFIG_BATTERY_SAMSUNG)	+= battery_v2/
-#else
-#	obj-$(CONFIG_BATTERY_SAMSUNG)	+= battery/
-endif
+# Battery V2
+obj-$(CONFIG_BATTERY_SAMSUNG)	+= battery_v2/
 
 # Fingerprint
 obj-$(CONFIG_SENSORS_FINGERPRINT)	+= fingerprint/
