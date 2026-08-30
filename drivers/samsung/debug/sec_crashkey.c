@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_crashkey.c
+ * drivers/samsung/debug/sec_crashkey.c
  *
  * COPYRIGHT(C) 2006-2018 Samsung Electronics Co., Ltd. All Right Reserved.
  *

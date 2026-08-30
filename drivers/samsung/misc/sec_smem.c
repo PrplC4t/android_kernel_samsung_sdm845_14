@@ -1,5 +1,5 @@
 /*
- * drivers/misc/samsung/sec_smem.c
+ * drivers/samsung/misc/sec_smem.c
  *
  * COPYRIGHT(C) 2015-2016 Samsung Electronics Co., Ltd. All Right Reserved.
  *

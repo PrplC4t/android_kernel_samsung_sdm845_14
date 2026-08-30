@@ -1,0 +1,25 @@
+#
+# SAMSUNG device dedicated drivers
+#
+config SEC_MISC
+	bool "Enable SEC miscellaneous feature"
+	default y
+
+config SAMSUNG_PRODUCT_SHIP
+	bool "set up for product shipping"
+	default n
+
+config SEC_DEBUG_APPS_CLK_LOGGING
+	bool "Enable apps clk logging"
+	default n
+	depends on CLOCK_CPU_OSM
+	help
+	  Enable apps clk logging.
+
+config ARGOS
+	bool "Throughput monitoring Feature"
+	default n
+	help
+	  This option enables monitoring the data throughput and doing several actions for
+	  enhancing the performance such as adjusting the CPU freqency, allocating the tasks
+	  to the appropriate CPU and so on

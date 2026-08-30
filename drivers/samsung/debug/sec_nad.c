@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_nad.c
+ * drivers/samsung/debug/sec_nad.c
  *
  * COPYRIGHT(C) 2006-2017 Samsung Electronics Co., Ltd. All Right Reserved.
  *

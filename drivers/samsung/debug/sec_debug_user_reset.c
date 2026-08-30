@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_debug_user_reset.c
+ * drivers/samsung/debug/sec_debug_user_reset.c
  *
  * COPYRIGHT(C) 2006-2017 Samsung Electronics Co., Ltd. All Right Reserved.
  *

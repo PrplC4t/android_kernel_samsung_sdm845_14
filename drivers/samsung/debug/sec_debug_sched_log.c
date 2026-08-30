@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_debug_sched_log.c
+ * drivers/samsung/debug/sec_debug_sched_log.c
  *
  * COPYRIGHT(C) 2017 Samsung Electronics Co., Ltd. All Right Reserved.
  *

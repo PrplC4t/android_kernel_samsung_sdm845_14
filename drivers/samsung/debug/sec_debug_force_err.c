@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_debug_force_err.c
+ * drivers/samsung/debug/sec_debug_force_err.c
  *
  * COPYRIGHT(C) 2017 Samsung Electronics Co., Ltd. All Right Reserved.
  *

@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_debug.c
+ * drivers/samsung/debug/sec_debug.c
  *
  * COPYRIGHT(C) 2006-2018 Samsung Electronics Co., Ltd. All Right Reserved.
  *

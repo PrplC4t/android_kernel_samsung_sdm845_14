@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_debug_internal.h
+ * drivers/samsung/debug/sec_debug_internal.h
  *
  * COPYRIGHT(C) 2017 Samsung Electronics Co., Ltd. All Right Reserved.
  *

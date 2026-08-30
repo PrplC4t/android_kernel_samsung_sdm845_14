@@ -1,5 +1,5 @@
 /*
- * drivers/misc/samsung/sec_bsp.c
+ * drivers/samsung/misc/samsung/sec_bsp.c
  *
  * COPYRIGHT(C) 2014-2017 Samsung Electronics Co., Ltd. All Right Reserved.
  *

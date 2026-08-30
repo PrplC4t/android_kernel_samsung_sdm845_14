@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_debug_summary.c
+ * drivers/samsung/debug/sec_debug_summary.c
  *
  * driver supporting debug functions for Samsung device
  *

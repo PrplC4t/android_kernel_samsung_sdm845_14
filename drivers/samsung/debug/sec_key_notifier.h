@@ -1,5 +1,5 @@
 /*
- * drivers/debug/sec_key_notifier.h
+ * drivers/samsung/debug/sec_key_notifier.h
  *
  * COPYRIGHT(C) 2016 Samsung Electronics Co., Ltd. All Right Reserved.
  *

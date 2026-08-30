@@ -228,7 +228,7 @@ source "drivers/fingerprint/Kconfig"
 
 source "drivers/ccic/Kconfig"
 
-source "drivers/debug/Kconfig"
+source "drivers/samsung/Kconfig"
 
 source "drivers/adsp_factory/Kconfig"
 
