@@ -211,8 +211,4 @@ obj-y	+= ccic/
 # CONFIG_SEC_DEBUG
 obj-y				+= debug/
 
-# streamline
-ifeq ($(CONFIG_GATOR), y)
-	obj-$(CONFIG_GATOR)				+= gator/
-endif
 
