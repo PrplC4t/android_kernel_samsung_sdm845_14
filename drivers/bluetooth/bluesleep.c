@@ -122,6 +122,11 @@ DECLARE_DELAYED_WORK(uart_awake_workqueue, bluesleep_uart_awake_work);
 
 static bool bt_enabled;
 
+static bool bt_keep_uart_clock = true;
+module_param(bt_keep_uart_clock, bool, 0644);
+MODULE_PARM_DESC(bt_keep_uart_clock,
+	"Never runtime-gate the BT UART clock on idle (default 1)");
+
 static struct platform_device *bluesleep_uart_dev;
 static struct bluesleep_info *bsi;
 
@@ -317,6 +322,15 @@ static void bluesleep_sleep_work(struct work_struct *work)
 				BT_DBG("TXDATA remained. Wait until timer expires.");
 
 				mod_timer(&tx_timer, jiffies + TX_TIMER_INTERVAL * HZ);
+				mutex_unlock(&bluesleep_mutex);
+				return;
+			}
+
+			if (bt_keep_uart_clock) {
+				if (bsi->has_ext_wake == 1)
+					gpio_set_value(bsi->ext_wake, 1);
+				set_bit(BT_EXT_WAKE, &flags);
+				wake_lock_timeout(&bsi->wake_lock, HZ / 2);
 				mutex_unlock(&bluesleep_mutex);
 				return;
 			}
