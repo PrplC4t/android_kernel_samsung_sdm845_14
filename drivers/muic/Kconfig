@@ -26,42 +26,6 @@ config MUIC_NOTIFIER
 	  If you say yes here you will get support for
 	  the MUIC attached device status change notification.
 
-config MUIC_MAX77833
-        bool "Using MAX77833 MUIC"
-        depends on MFD_MAX77833 && USE_MUIC
-        default n
-        help
-          If you say yes here you will get support for 
-          for the MAX77833 MUIC chip.
-
-config HV_MUIC_MAX77833_AFC
-        bool "Using MAX77833 AFC MUIC"
-        depends on MUIC_MAX77833
-        default n
-        help
-          If you say yes here you will get support for the MAX77833 AFC MUIC.
-
-config MUIC_MAX77833_SHAKEID_WA
-        bool "Using MAX77833 MUIC SHAKE ID WA"
-        depends on MUIC_MAX77833
-        default n
-        help
-          If you say yes here you will get support for the MAX77833 MUIC SHAKE ID WA.
-
-config MUIC_MAX77833_IGNORE_ADCERR_WA
-        bool "Using MAX77833 MUIC ignore ADCERR WA"
-        depends on MUIC_MAX77833
-        default n
-        help
-          If you say yes here you will get support for the MAX77833 MUIC RESET WA. 
-
-config MUIC_MAX77833_RESET_WA
-        bool "Using MAX77833 MUIC RESET WA"
-        depends on MUIC_MAX77833
-        default n
-        help
-          If you say yes here you will get support for the MAX77833 MUIC RESET WA.
-
 config MUIC_MAX77705
         bool "Using MAX77705 MUIC"
         depends on USE_MUIC
@@ -82,27 +46,12 @@ config HV_MUIC_MAX77705_AFC
 	  for the MAX77705
 	  AFC MUIC.
 
-config MUIC_MAX77888
-	bool "Using MAX77888 MUIC"
-	depends on MFD_MAX77888 && USE_MUIC
-	default n
-	help
-	  If you say yes here you will get support for
-	  for the MAX77888 MUIC chip.
-
 config MUIC_UNIVERSAL
 	bool "UNIVERSAL MUIC"
 	depends on USE_MUIC
 	default n
 	help
 	  If you say yes here you will get support for various MUIC chips.
-
-config MUIC_UNIVERSAL_MAX77854
-	bool "MAX77854 MUIC"
-	depends on MUIC_UNIVERSAL
-	default n
-	help
-	  If you say yes here you will get support for the MAX77854 MUIC chip.
 
 config MUIC_HV
 	bool "MUIC_HV"
@@ -176,27 +125,6 @@ config MUIC_HV_FORCE_LIMIT
         default n
         help
           If you say yes here you will add function of limit afc charging volatage.
-
-config MUIC_UNIVERSAL_SM5703
-	bool "SM5703 MUIC"
-	depends on USE_MUIC
-	default n
-	help
-	  If you say yes here you will get support for the SM5703 MUIC chip.
-
-config MUIC_UNIVERSAL_SM5720
-	bool "SM5720 MUIC"
-	depends on USE_MUIC
-	default n
-	help
-	  If you say yes here you will get support for the SM5720 MUIC chip.
-
-config MUIC_UNIVERSAL_SM5720_AFC
-	bool "SM5720 MUIC AFC"
-	depends on USE_MUIC
-	default n
-	help
-	  If you say yes here you will get support for the SM5720 MUIC
 
 config HICCUP_CHARGER
 	bool "Using HICCUP charger"

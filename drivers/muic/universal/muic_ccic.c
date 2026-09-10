@@ -54,7 +54,6 @@
 
 #if defined(CONFIG_MUIC_HV)
 #include "muic_hv.h"
-#include "muic_sm5720_afc.h"
 #endif
 
 #if defined(CONFIG_SWITCH)
@@ -559,9 +558,6 @@ static int muic_handle_ccic_ATTACH(muic_data_t *pmuic, CC_NOTI_ATTACH_TYPEDEF *p
 		if (pmuic->retry_afc) {
 			pmuic->retry_afc = false;
 			pr_info("%s: Do AFC restart because of late ccic_attach.\n", __func__);
-#ifdef CONFIG_MUIC_UNIVERSAL_SM5720
-			sm5720_afc_restart();
-#endif
 		}
 #endif
 		/* CCIC ATTACH means NO WATER */
@@ -574,34 +570,6 @@ static int muic_handle_ccic_ATTACH(muic_data_t *pmuic, CC_NOTI_ATTACH_TYPEDEF *p
 		pdesc->ccic_evt_dcdcnt = 0;
 		if (prev_status != MUIC_CCIC_NOTI_ATTACH &&
 				pmuic->is_dcdtmr_intr && vbus) {
-#if defined(CONFIG_MUIC_UNIVERSAL_SM5720)
-			switch (bcd_rescan(pmuic)) {
-				case CHGTYPE_NONE:
-					pmuic->legacy_dev = ATTACHED_DEV_UNDEFINED_CHARGING_MUIC;
-					com_to_open_with_vbus(pmuic);
-					break;
-				case CHGTYPE_DCP:
-				case CHGTYPE_U200:
-				case CHGTYPE_LO_TA:
-					pmuic->legacy_dev = ATTACHED_DEV_TA_MUIC;
-					com_to_open_with_vbus(pmuic);
-					break;
-				case CHGTYPE_CDP:
-					pmuic->legacy_dev = ATTACHED_DEV_CDP_MUIC;
-					break;
-				case CHGTYPE_SDP:
-					pmuic->legacy_dev = ATTACHED_DEV_USB_MUIC;
-					break;
-				case CHGTYPE_TIMEOUT_SDP:
-					pmuic->legacy_dev = ATTACHED_DEV_TIMEOUT_OPEN_MUIC;
-					break;
-				default:
-					pr_info("%s: Unsupported Chger Type\n", __func__);
-					return 0;
-			}
-
-			mdev_noti_attached(pmuic->legacy_dev);
-#else
 			if (pmuic->vps_table == VPS_TYPE_TABLE) {
 				if (pmuic->vps.t.chgdetrun) {
 					pr_info("%s: Incomplete insertion. Chgdet runnung\n", __func__);
@@ -612,7 +580,6 @@ static int muic_handle_ccic_ATTACH(muic_data_t *pmuic, CC_NOTI_ATTACH_TYPEDEF *p
 			pmuic->is_dcdtmr_intr = false;
 			if (pvendor && pvendor->run_chgdet)
 				pvendor->run_chgdet(pmuic->regmapdesc, 1);
-#endif
 		}
 	} else {
 		if (pnoti->rprd) {

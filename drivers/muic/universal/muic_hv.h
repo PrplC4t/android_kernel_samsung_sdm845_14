@@ -25,8 +25,6 @@
 #define __MUIC_HV_H__
 
 #include "muic-internal.h"
-#include "muic_hv_max77854.h"
-#include "muic_sm5720_afc.h"
 
 #include <linux/muic/muic.h>
 
@@ -35,6 +33,15 @@
 #define MUIC_HV_5V	0x08
 #define MUIC_HV_9V	0x46
 #define MUIC_HV_12V	0x79
+
+struct hv_data {
+	muic_attached_dev_t		attached_dev;
+
+        bool                            is_afc_muic_ready;
+
+        u8                              tx_data;
+        u8                              qc_hv;
+};
 
 int muic_afc_set_voltage(int vol);
 int muic_set_afc(bool enable);

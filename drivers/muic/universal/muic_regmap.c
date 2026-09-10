@@ -224,12 +224,8 @@ int regmap_com_to(struct regmap_desc *pdesc, int port)
 	int uattr, ret;
 
 	pops->ioctl(pdesc, GET_COM_VAL, &port, &uattr);
-#if defined(CONFIG_MUIC_UNIVERSAL_MAX77849)
-	 ret = regmap_write_value(pdesc, uattr, port);
-#else
 	uattr |= _ATTR_OVERWRITE_M;
 	ret = regmap_write_value(pdesc, uattr, port);
-#endif
 
 	_REGMAP_TRACE(pdesc, 'w', ret, uattr, port);
 
@@ -390,50 +386,10 @@ static void muic_show_regmap(struct regmap_desc *pdesc)
 	muic_show_regmapdata(pdesc, pdesc->regmap);
 }
 
-#if defined(CONFIG_MUIC_UNIVERSAL_SM5703)
-extern void muic_register_sm5703_regmap_desc(struct regmap_desc **pdesc);
-#endif
-
-#if defined(CONFIG_MUIC_UNIVERSAL_S2MM001)
-extern void muic_register_s2mm001_regmap_desc(struct regmap_desc **pdesc);
-#endif
-
-#if defined(CONFIG_MUIC_UNIVERSAL_MAX77849)
-extern void muic_register_max77849_regmap_desc(struct regmap_desc **pdesc);
-#endif
-
-#if defined(CONFIG_MUIC_UNIVERSAL_MAX77854)
-extern void muic_register_max77854_regmap_desc(struct regmap_desc **pdesc);
-#endif
-
-#if defined(CONFIG_MUIC_UNIVERSAL_SM5703)
-extern void muic_register_sm5703_regmap_desc(struct regmap_desc **pdesc);
-#endif
-#if defined(CONFIG_MUIC_UNIVERSAL_SM5720)
-extern void muic_register_sm5720_regmap_desc(struct regmap_desc **pdesc);
-#endif
-
 static struct vendor_regmap vendor_regmap_tbl[] = {
-#if defined(CONFIG_MUIC_UNIVERSAL_SM5703)
-	{"sm,sm5703", muic_register_sm5703_regmap_desc},
-#endif
-#if defined(CONFIG_MUIC_UNIVERSAL_S2MM001)
-	{"lsi,s2mm001", muic_register_s2mm001_regmap_desc},
-#endif
-#if defined(CONFIG_MUIC_UNIVERSAL_MAX77849)
-	{"max,max77849", muic_register_max77849_regmap_desc},
-#endif
-#if defined(CONFIG_MUIC_UNIVERSAL_MAX77854)
-	{"max,max77854", muic_register_max77854_regmap_desc},
-#endif
-#if defined(CONFIG_MUIC_UNIVERSAL_SM5703)
-	{"sm,sm5703", muic_register_sm5703_regmap_desc},
-#endif
-#if defined(CONFIG_MUIC_UNIVERSAL_SM5720)
-	{"sm,sm5720", muic_register_sm5720_regmap_desc},
-#endif
 	{"", NULL},
 };
+
 void muic_register_regmap(struct regmap_desc **pdesc, void *pdata)
 {
 	struct regmap_desc *pdesc_temp = NULL;
