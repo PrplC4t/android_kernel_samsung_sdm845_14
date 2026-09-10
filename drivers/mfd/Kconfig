@@ -665,14 +665,6 @@ config MFD_MAX8998
 	  additional drivers must be enabled in order to use the functionality
 	  of the device.
 
-config MFD_SM5720
-	bool "Silicon Mitus semiconductor SM5720 IFPM support"
-	select MFD_CORE
-	help
-	  Say yes here to support for Silicon Mitus semiconductor SM5720.
-	  This is a Power Management IC with SW Charger, Fuel Gauge, RGBW, Haptic
-	  and MUIC controls on chip.
-
 config MFD_MT6397
 	tristate "MediaTek MT6397 PMIC Support"
 	select MFD_CORE
