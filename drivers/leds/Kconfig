@@ -668,13 +668,6 @@ config LEDS_MLXCPLD
 	  This option enabled support for the LEDs on the Mellanox
 	  boards. Say Y to enabled these.
 
-config LEDS_SM5720_RGB
-	tristate "Support for SM5720 RGB-LED"
-	depends on MFD_SM5720 && LEDS_CLASS && I2C
-	help
-	  If you say yes here you will get support for
-	  for the SM5720 RGB-LED chip.
-
 config LEDS_MAX77705_RGB
         tristate "LED support for MAX77705 RGB"
         depends on MFD_MAX77705 && LEDS_CLASS && I2C
