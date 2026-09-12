@@ -184,9 +184,6 @@ obj-$(CONFIG_ESOC)              += esoc/
 obj-$(CONFIG_FPGA)		+= fpga/
 obj-$(CONFIG_SAMSUNG_NFC)		+= nfc/
 obj-$(CONFIG_SENSORS_SSC)		+= sensors/
-obj-$(CONFIG_SENSORS_HRMSENSOR)	+= optics/
-obj-$(CONFIG_SENSORS_MAX86915)	+= optics/
-obj-$(CONFIG_SENSORS_TCS3407)	+= optics/
 obj-$(CONFIG_TEE)		+= tee/
 obj-$(CONFIG_ADSP_FACTORY)      += adsp_factory/
 
@@ -208,4 +205,5 @@ obj-y	+= ccic/
 # CONFIG_SEC_DEBUG
 obj-y				+= debug/
 
-
+# optics
+obj-y += optics/
