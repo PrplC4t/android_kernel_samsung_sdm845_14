@@ -55,7 +55,7 @@ struct device *sec_device_create(dev_t devt, void *drvdata, const char *fmt)
 		BUG();
 	}
 
-	dev = device_create(sec_class, NULL, devt, drvdata, fmt);
+	dev = device_create(sec_class, NULL, devt, drvdata, "%s", fmt);
 	if (IS_ERR(dev))
 		pr_err("Failed to create device %s %ld\n", fmt, PTR_ERR(dev));
 	else

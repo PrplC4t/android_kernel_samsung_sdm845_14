@@ -434,7 +434,7 @@ static inline void __cb_keycrash(unsigned long arg)
 	dump_stack();
 	dump_all_task_info();
 	dump_cpu_stat();
-	panic(msg[arg]);
+	panic("%s", msg[arg]);
 }
 
 static struct sec_crash_key keycrash = {

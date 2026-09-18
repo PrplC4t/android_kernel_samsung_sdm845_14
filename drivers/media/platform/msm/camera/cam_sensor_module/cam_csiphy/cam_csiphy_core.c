@@ -30,7 +30,7 @@ module_param(csiphy_dump, int, 0644);
 
 static DEFINE_SPINLOCK(secure_mode_lock);
 
-static int cam_refcnt_status(bool rw, bool protect)
+static int cam_refcnt_status(int rw, bool protect)
 {
 	int ret = 0;
 

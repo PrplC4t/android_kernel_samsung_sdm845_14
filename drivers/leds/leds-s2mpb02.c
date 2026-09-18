@@ -790,9 +790,7 @@ static int s2mpb02_led_probe(struct platform_device *pdev)
 		led_data->led.brightness = LED_OFF;
 		led_data->brightness = data->brightness;
 		led_data->led.flags = 0;
-		led_data->led.max_brightness = data->id ?
-			S2MPB02_TORCH_OUT_I_MAX : S2MPB02_FLASH_OUT_I_MAX;
-		led_data->led.default_trigger = data->default_trigger;
+		led_data->led.max_brightness = S2MPB02_FLASH_TORCH_CURRENT_MAX;
 
 		mutex_init(&led_data->lock);
 		spin_lock_init(&led_data->value_lock);

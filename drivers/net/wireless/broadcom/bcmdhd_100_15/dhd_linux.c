@@ -20859,7 +20859,7 @@ dhd_get_random_bytes(uint8 *buf, uint len)
 		get_random_bytes(buf, len);
 	}
 #else
-	get_random_bytes_arch(buf, len);
+	get_random_bytes(buf, len);
 #endif // endif
 #endif /* BCMPCIE */
 	return BCME_OK;

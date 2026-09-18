@@ -28,6 +28,7 @@
 #include <linux/io.h>
 #include <linux/platform_device.h>
 #include <linux/module.h>
+#include <linux/slab.h>
 
 #include <asm/unaligned.h>
 
@@ -515,9 +516,10 @@ static const char *find_tag_name_from_id(int id)
 static off_t parse_buffer(char *buffer, unsigned char type, off_t pos)
 {
 	int buf_len;
-	char buf[MAX_BUFFER_SIZE] = { '\0', };
+	char *buf = NULL;
 	off_t next = pos;
 
+	buf = kzalloc(MAX_BUFFER_SIZE, GFP_KERNEL);
 	switch (type) {
 	case EVENT_TYPE_INT:
 	{
