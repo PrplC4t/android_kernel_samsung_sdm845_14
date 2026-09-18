@@ -702,6 +702,10 @@ KBUILD_CFLAGS	+= $(call cc-option,-ffunction-sections,)
 KBUILD_CFLAGS	+= $(call cc-option,-fdata-sections,)
 endif
 
+ifeq ($(cc-name),clang)
+KBUILD_CFLAGS	+= -mno-unaligned-access -mstrict-align
+endif
+
 ifdef CONFIG_LTO_CLANG
 lto-clang-flags	:= -flto -fvisibility=hidden
 
