@@ -48,13 +48,6 @@ config CPU_FREQ_LIMIT_USERSPACE
 	  /sys/power/cpufreq_max_limit
 	  /sys/power/cpufreq_table
 
-config FOTA_LIMIT
-	bool "Fota limit information node"
-	default n
-	help
-	  Add sysfs to notify limit information to recovery module
-	  /sys/power/fota_limit
-
 config HIBERNATE_CALLBACKS
 	bool
 

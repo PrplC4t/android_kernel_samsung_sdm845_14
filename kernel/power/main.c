@@ -849,36 +849,6 @@ static ssize_t rtc_status_show(struct kobject *kobj,
 power_attr_ro(rtc_status);
 #endif /* CONFIG_SEC_PM */
 
-#if defined(CONFIG_FOTA_LIMIT)
-static char fota_limit_str[] =
-#if defined(CONFIG_ARCH_SDM845)
-	"[START]\n"
-	"/sys/power/cpufreq_max_limit 1459200\n"
-	"[STOP]\n"
-	"/sys/power/cpufreq_max_limit -1\n"
-	"[END]\n";
-#else
-	"[NOT_SUPPORT]\n";
-#endif
-
-static ssize_t fota_limit_show(struct kobject *kobj,
-					struct kobj_attribute *attr,
-					char *buf)
-{
-	pr_info("%s\n", __func__);
-	return sprintf(buf, "%s", fota_limit_str);
-}
-
-static struct kobj_attribute fota_limit_attr = {
-	.attr	= {
-		.name = __stringify(fota_limit),
-		.mode = 0440,
-	},
-	.show	= fota_limit_show,
-};
-#endif /* CONFIG_FOTA_LIMIT */
-
-
 static struct attribute * g[] = {
 	&state_attr.attr,
 #ifdef CONFIG_PM_TRACE
@@ -915,9 +885,6 @@ static struct attribute * g[] = {
 	&volkey_wakeup_attr.attr,
 	&rtc_status_attr.attr,
 #endif
-#if defined(CONFIG_FOTA_LIMIT)
-	&fota_limit_attr.attr,
-#endif /* CONFIG_FOTA_LIMIT */
 	NULL,
 };
 
