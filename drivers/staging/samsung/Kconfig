@@ -9,10 +9,6 @@ comment "Samsung TN Features"
 menuconfig SEC_EXT
 	bool "Samsung TN extension Feature"
 
-config SEC_FD_DETECT
-	bool "Detect a file descriptor invalid closer"
-	default n
-
 comment "Logging Heavy Task Cpu Options"
 config SEC_HEAVY_TASK_CPU
 	bool "Enable heacy cpu core counting"
