@@ -18029,7 +18029,7 @@ dhd_nla_put_sssr_dump_len(void *ndev, uint32 *arr_len)
 #endif /* DHD_SSSR_DUMP */
 
 uint32
-dhd_get_time_str_len(void)
+dhd_get_time_str_len()
 {
 	char *ts = NULL, time_str[128];
 
@@ -20859,7 +20859,7 @@ dhd_get_random_bytes(uint8 *buf, uint len)
 		get_random_bytes(buf, len);
 	}
 #else
-	get_random_bytes(buf, len);
+	get_random_bytes_arch(buf, len);
 #endif // endif
 #endif /* BCMPCIE */
 	return BCME_OK;
